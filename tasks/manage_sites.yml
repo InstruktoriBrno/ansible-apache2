@@ -28,7 +28,7 @@
 
 - name: Disabling sites
   file:
-    src: "/etc/apache2/sites-enabled/{{ item.id }}.conf"
+    path: "/etc/apache2/sites-enabled/{{ item.id }}.conf"
     state: absent
   when: item.state is defined and item.state == 'absent'
   with_items: "{{ apache2_sites }}"
